@@ -40,7 +40,8 @@ def initialize(name = nil)
   }
 
   # create a new driver instance
-  @driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :desired_capabilities => capabilities)
+  #@driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :desired_capabilities => capabilities)
+  @driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :capabilities => capabilities)
 
   # create new reportium client
   create_reportium_client

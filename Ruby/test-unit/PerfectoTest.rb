@@ -22,24 +22,31 @@ class PerfectoTest < Test::Unit::TestCase
   def initialize(name = nil)
     super(name) unless name.nil?
 
-    host = 'LABNAME.perfectomobile.com'
-    @user = 'Your UserName'
-    pass = 'Your PW'
+    host = 'demo.perfectomobile.com'
+    securityToken = 'eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI4YmI4YmZmZS1kMzBjLTQ2MjctYmMxMS0zNTYyMmY1ZDkyMGYifQ.eyJpYXQiOjE2NDkxMDk1OTksImp0aSI6IjBhMDk4NmZkLTU2MTEtNDg3Yi04M2Q2LTNmNzA3Yzg5MzE2OSIsImlzcyI6Imh0dHBzOi8vYXV0aC5wZXJmZWN0b21vYmlsZS5jb20vYXV0aC9yZWFsbXMvZGVtby1wZXJmZWN0b21vYmlsZS1jb20iLCJhdWQiOiJodHRwczovL2F1dGgucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL2RlbW8tcGVyZmVjdG9tb2JpbGUtY29tIiwic3ViIjoiN2YwNTllY2YtYmIzZi00ZTdlLTkxNDktMGNiZDcwMmY5NjAzIiwidHlwIjoiT2ZmbGluZSIsImF6cCI6Im9mZmxpbmUtdG9rZW4tZ2VuZXJhdG9yIiwibm9uY2UiOiI1Yzg3MTEzOS00NmRmLTQwZjktOWY2MC0xNGY5NDQ0N2Q0NTQiLCJzZXNzaW9uX3N0YXRlIjoiYzQ0M2JmMjItMDE2Yy00ZWFmLWJjNGQtZTcwZGE1MGViYTliIiwic2NvcGUiOiJvcGVuaWQgb2ZmbGluZV9hY2Nlc3MifQ.ubxCF-vdv2OhzGS-pXZQtTM-UD1AGxeqc6YnlqeFSxM'
+    #@user = 'se2@perfecto.io'
+    #pass = 'Perfecto123!@#'
 
     # device capabilities:
+    #capabilities = {
+    #    :platformName => 'Android',
+    #    :model => '',
+    #    :platformVersion => '',
+    #    :browserName => 'mobileOS',
+    #    :browserVersion => '',
+    #    :deviceName => '',
+    #    :user => @user,
+    #    :password => pass
+    #}
+
     capabilities = {
-        :platformName => 'Android',
-        :model => '',
-        :platformVersion => '',
-        :browserName => 'mobileOS',
-        :browserVersion => '',
-        :deviceName => '',
-        :user => @user,
-        :password => pass
+      :deviceName => 'RFCN2000VRH',
+      :securityToken => securityToken
     }
 
     # create a new driver instance
-    @driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :desired_capabilities => capabilities)
+    #@driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :desired_capabilities => capabilities)
+    @driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :capabilities => capabilities)
 
     # create new reportium client
     create_reportium_client

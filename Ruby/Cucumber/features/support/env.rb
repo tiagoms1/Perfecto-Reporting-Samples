@@ -13,16 +13,37 @@ Before do |scenario|
   Utils::Cucumber.scenario = scenario
 
   host = 'demo.perfectomobile.com'
-  securityToken =''
+  securityToken ='eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI4YmI4YmZmZS1kMzBjLTQ2MjctYmMxMS0zNTYyMmY1ZDkyMGYifQ.eyJpYXQiOjE2NDkxMDk1OTksImp0aSI6IjBhMDk4NmZkLTU2MTEtNDg3Yi04M2Q2LTNmNzA3Yzg5MzE2OSIsImlzcyI6Imh0dHBzOi8vYXV0aC5wZXJmZWN0b21vYmlsZS5jb20vYXV0aC9yZWFsbXMvZGVtby1wZXJmZWN0b21vYmlsZS1jb20iLCJhdWQiOiJodHRwczovL2F1dGgucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL2RlbW8tcGVyZmVjdG9tb2JpbGUtY29tIiwic3ViIjoiN2YwNTllY2YtYmIzZi00ZTdlLTkxNDktMGNiZDcwMmY5NjAzIiwidHlwIjoiT2ZmbGluZSIsImF6cCI6Im9mZmxpbmUtdG9rZW4tZ2VuZXJhdG9yIiwibm9uY2UiOiI1Yzg3MTEzOS00NmRmLTQwZjktOWY2MC0xNGY5NDQ0N2Q0NTQiLCJzZXNzaW9uX3N0YXRlIjoiYzQ0M2JmMjItMDE2Yy00ZWFmLWJjNGQtZTcwZGE1MGViYTliIiwic2NvcGUiOiJvcGVuaWQgb2ZmbGluZV9hY2Nlc3MifQ.ubxCF-vdv2OhzGS-pXZQtTM-UD1AGxeqc6YnlqeFSxM'
 
+  #capabilities = {
+  #    :platformName => 'Android',
+  #    :model => '',
+  #    :platformVersion => '',
+  #    :browserName => '',
+  #    :browserVersion => '',
+  #    :deviceName => '',
+  #    :securityToken => securityToken
+  #}
+
+  #capabilities = {
+  #  :platformName => 'Android',
+  #  :platformVersion => '12',
+  #  :platformBuild => 'SP1A.210812.016.G998WVLS5CVI8',
+  #  :location => 'NA-CA-YYZ',
+  #  :resolution => '1440x3200',
+  #  :deviceStatus => 'CONNECTED',
+  #  :manufacturer => 'Samsung',
+  #  :model => 'Galaxy S21 Ultra',
+  #  :securityToken => securityToken
+  #}
+  #capabilities = {
+  #  :model => 'iPhone-11 Pro Max',
+  #  :securityToken => securityToken
+  #}
   capabilities = {
-      :platformName => 'Android',
-      :model => '',
-      :platformVersion => '',
-      :browserName => '',
-      :browserVersion => '',
-      :deviceName => '',
-      :securityToken => securityToken
+    :deviceName => '00008110-000E3D6636BA801E',
+    :browserName => 'Safari',
+    :securityToken => securityToken
   }
 
   Utils::Device.create_device host, capabilities

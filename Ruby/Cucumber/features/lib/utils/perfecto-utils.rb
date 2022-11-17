@@ -29,7 +29,11 @@ module Utils
     def self.create_device host, capabilities
 
       # create a new driver instance
-      @@driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :desired_capabilities => capabilities)
+      #@@driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :desired_capabilities => capabilities)
+      #@@driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :capabilities => capabilities)
+      options = Selenium::WebDriver::Options.chrome
+      options.add_option('perfecto:options', capabilities)
+      @@driver = Selenium::WebDriver.for(:remote, :url => 'http://' + host + '/nexperience/perfectomobile/wd/hub', :capabilities => options)
 
       # setting timeouts
       @@driver.manage.timeouts.implicit_wait = 30
